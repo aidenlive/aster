@@ -1,0 +1,6 @@
+{
+  "name": "example-research-team",
+  "private": true,
+  "type": "module",
+  "dependencies": { "aster": "^0.1.0", "zod": "^4.0.0" }
+}

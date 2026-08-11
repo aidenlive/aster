@@ -1,0 +1,58 @@
+{
+  "name": "aster",
+  "version": "0.1.0",
+  "description": "A filesystem-first framework for building durable AI agents.",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=22.18.0"
+  },
+  "bin": {
+    "aster": "./dist/cli/main.js"
+  },
+  "exports": {
+    ".": "./dist/index.js",
+    "./tools": "./dist/tools/index.js",
+    "./skills": "./dist/skills/index.js",
+    "./subagents": "./dist/subagents/index.js",
+    "./workflows": "./dist/workflows/index.js",
+    "./channels": "./dist/channels/index.js",
+    "./schedules": "./dist/schedules/index.js",
+    "./providers": "./dist/providers/index.js",
+    "./runtime": "./dist/runtime/index.js",
+    "./testing": "./dist/testing/index.js",
+    "./init": "./dist/cli/init.js"
+  },
+  "files": [
+    "dist",
+    "templates",
+    "docs",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json && node scripts/copy-templates.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "tsc -p tsconfig.json --noEmit",
+    "prepublishOnly": "npm run build && npm test"
+  },
+  "dependencies": {
+    "zod": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "typescript": "^5.7.0",
+    "vitest": "^3.0.0"
+  },
+  "keywords": [
+    "ai",
+    "agents",
+    "framework",
+    "filesystem-first",
+    "durable",
+    "llm",
+    "typescript"
+  ]
+}
