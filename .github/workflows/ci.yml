@@ -1,0 +1,26 @@
+name: ci
+on:
+  push: { branches: [main] }
+  pull_request:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: ["22.18", "24"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: "${{ matrix.node }}" }
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm test
+      - run: npm run build
+      - name: end-to-end (offline)
+        run: |
+          node dist/cli/main.js init /tmp/e2e
+          cd /tmp/e2e && mkdir -p node_modules
+          ln -s $GITHUB_WORKSPACE node_modules/aster
+          ln -s $GITHUB_WORKSPACE/node_modules/zod node_modules/zod
+          ASTER_OFFLINE=1 node $GITHUB_WORKSPACE/dist/cli/main.js run . -p "hello" --session ci
+          ASTER_OFFLINE=1 node $GITHUB_WORKSPACE/dist/cli/main.js inspect trace ci .

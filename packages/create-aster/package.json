@@ -1,0 +1,11 @@
+{
+  "name": "create-aster",
+  "version": "0.1.0",
+  "description": "Scaffold an aster agent project: npm create aster@latest my-agent",
+  "license": "MIT",
+  "type": "module",
+  "bin": { "create-aster": "./index.mjs" },
+  "files": ["index.mjs", "README.md"],
+  "engines": { "node": ">=22.18.0" },
+  "dependencies": { "aster": "^0.1.0" }
+}

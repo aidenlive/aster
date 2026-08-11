@@ -1,0 +1,20 @@
+{
+  "name": "my-agent",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22.18.0" },
+  "scripts": {
+    "dev": "aster dev",
+    "run": "aster run",
+    "build": "aster build",
+    "deploy": "aster deploy"
+  },
+  "dependencies": {
+    "aster": "^0.1.0",
+    "zod": "^4.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.0",
+    "@types/node": "^22.10.0"
+  }
+}
