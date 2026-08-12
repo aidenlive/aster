@@ -4,7 +4,7 @@
 
 An aster agent is a directory. Instructions, tools, skills, subagents,
 workflows, channels, and schedules live in conventional locations and are
-discovered automatically — like Next.js, but the routes are capabilities and
+discovered automatically — like Rails, but the routes are capabilities and
 the pages are behavior. Everything the agent does is recorded durably, so runs
 survive crashes, restarts, and deploys.
 
